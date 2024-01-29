@@ -21,3 +21,13 @@ function alphabetPosition(text) {
     }
     return result.trim();
   }
+
+
+  function alphabetPosition(text) {
+    return text
+      .toLowerCase() //convert the string to lowercase
+      .split('')  //split the string to evalute it one by one
+      .map(char => /[a-z]/.test(char) ? char.charCodeAt(0) - 96 : '') //useing regular expressions we test to see if it is a letter and then convert it to ASCII.
+      .filter(pos => pos !== '') //filter out any empty positions
+      .join(' '); //join the string back together
+  }
